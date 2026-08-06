@@ -342,7 +342,7 @@ a {
   left: 50%;
   transform: translateX(-50%);
   width: 0;
-  height: 2px;
+  height: 0.125rem; /* 2px */
   background-color: var(--clr-white);
   transition: width 0.2s ease;
 }
