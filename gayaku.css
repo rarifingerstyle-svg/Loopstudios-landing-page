@@ -62,6 +62,7 @@ a {
 .container {
   width: min(100% - 3rem, var(--container-max-width));
   margin-inline: auto;
+  margin-top: 50px;
 }
 
 /* Buttons */
@@ -88,7 +89,7 @@ a {
    HEADER & HERO
    ========================================================================== */
 .hero {
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./images/mobile/image-hero.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("./images/mobile/image-hero.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -165,7 +166,7 @@ a {
 .hero-title-box {
   border: 2px solid var(--clr-white);
   padding: 1.5rem;
-  margin-top: 4rem;
+  margin-top: 100px;
   max-width: 650px;
 }
 
@@ -366,8 +367,14 @@ a {
 @media (min-width: 1024px) {
   /* Header */
   .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('./images/desktop/image-hero.jpg');
-    padding-top: 4rem;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("./images/desktop/image-hero.jpg");
+    padding-top: 2rem;
+   
+  /* Pengaturan Ukuran Latar Belakang */
+  background-size: cover;       /* Gambar memenuhi area hero */
+  background-position: center;  /* Gambar selalu di tengah */
+  background-repeat: no-repeat; /* Gambar tidak mengulang/patah */
+  min-height: 30vh;    
   }
 
   .nav-toggle, .mobile-nav-header {
@@ -394,7 +401,7 @@ a {
 
   .hero-title-box {
     padding: 2.5rem;
-    margin-top: 0;
+    margin-top: 100px;
     margin-bottom: 4rem;
   }
 
@@ -419,7 +426,7 @@ a {
     right: 0;
     width: 50%;
     padding: 6rem 0 0 6rem;
-    margin-top: 0;
+    margin-top: 100px;
   }
 
   .interactive-content h2 {
