@@ -115,8 +115,8 @@ left: 1.5rem;
   display: block;
   background: transparent url('./images/icon-hamburger.svg') no-repeat center;
   border: none;
-  width: 1,5rem;
-  height: 1,3rem;
+  width: 1.5rem;
+  height: 1.3rem;
   cursor: pointer;
   z-index: 100;
 }
@@ -166,7 +166,7 @@ left: 1.5rem;
 .hero-title-box {
   border: 2px solid var(--clr-white);
   padding: 1.5rem;
-  margin-top: 6,25rem;
+  margin-top: 6.25rem;
   max-width: 650px;
 }
 
