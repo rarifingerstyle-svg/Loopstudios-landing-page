@@ -29,14 +29,16 @@ body {
   color: var(--clr-black);
   background-color: var(--clr-white);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img, picture {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
-ul[role="list"] {
+ul[role="list"], ul {
   list-style: none;
 }
 
@@ -45,13 +47,13 @@ a {
   color: inherit;
 }
 
-/* Screen Reader Only Utility Class for Accessibility */
+/* Screen Reader Only Utility Class */
 .sr-only {
   position: absolute;
-width: 0.0625rem;
-height: 0.0625rem;
-margin-top: 3.125rem;
-left: 1.5rem;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -62,7 +64,6 @@ left: 1.5rem;
 .container {
   width: min(100% - 3rem, var(--container-max-width));
   margin-inline: auto;
-  margin-top: 3.125rem ;
 }
 
 /* Buttons */
@@ -93,8 +94,9 @@ left: 1.5rem;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
+  min-height: 100dvh;
   padding-top: 2.5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -108,6 +110,7 @@ left: 1.5rem;
 
 .logo {
   height: 1.5rem;
+  width: auto;
 }
 
 /* Toggle Menu Button (Mobile) */
@@ -123,13 +126,14 @@ left: 1.5rem;
 
 .nav-toggle[aria-expanded="true"] {
   background-image: url('./images/icon-close.svg');
-  position: absolute;
+  position: fixed;
   right: 1.5rem;
+  top: 2.5rem;
 }
 
 /* Navigation Menu Mobile */
 .primary-navigation {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-color: var(--clr-black);
   padding: 8rem 1.5rem 2rem;
@@ -142,12 +146,6 @@ left: 1.5rem;
   transform: translateX(0);
 }
 
-.mobile-nav-header {
-  position: absolute;
-  top: 2.5rem;
-  left: 1.5rem;
-}
-
 .nav-list {
   display: flex;
   flex-direction: column;
@@ -155,25 +153,27 @@ left: 1.5rem;
 }
 
 .nav-link {
+  position: relative;
   font-family: var(--ff-heading);
   text-transform: uppercase;
   color: var(--clr-white);
   font-size: 1.5rem;
   font-weight: 300;
+  display: inline-block;
 }
 
 /* Hero Title Box */
 .hero-title-box {
   border: 2px solid var(--clr-white);
   padding: 1.5rem;
-  margin-top: 6.25rem;
+  margin-top: 4rem;
   max-width: 40.625rem;
 }
 
 .hero-title-box h1 {
   font-family: var(--ff-heading);
   color: var(--clr-white);
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
   text-transform: uppercase;
   font-weight: 300;
   line-height: 1.05;
@@ -183,7 +183,7 @@ left: 1.5rem;
    INTERACTIVE SECTION (ABOUT)
    ========================================================================== */
 .interactive-section {
-  padding-block: 6rem;
+  padding-block: 5rem;
   text-align: center;
 }
 
@@ -194,7 +194,7 @@ left: 1.5rem;
 
 .interactive-content h2 {
   font-family: var(--ff-heading);
-  font-size: 2rem;
+  font-size: clamp(1.75rem, 3vw + 1rem, 3rem);
   text-transform: uppercase;
   font-weight: 300;
   margin-bottom: 1rem;
@@ -208,7 +208,7 @@ left: 1.5rem;
    CREATIONS SECTION
    ========================================================================== */
 .creations-section {
-  padding-bottom: 6rem;
+  padding-bottom: 5rem;
 }
 
 .creations-header {
@@ -218,7 +218,7 @@ left: 1.5rem;
 
 .creations-header h2 {
   font-family: var(--ff-heading);
-  font-size: 2rem;
+  font-size: clamp(1.75rem, 3vw + 1rem, 3rem);
   text-transform: uppercase;
   font-weight: 300;
 }
@@ -229,6 +229,7 @@ left: 1.5rem;
 
 .creations-grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
@@ -258,15 +259,15 @@ left: 1.5rem;
   max-width: 150px;
   line-height: 1;
   z-index: 2;
+  transition: color 0.3s ease;
 }
 
-/* Creation Card Hover Effects */
 .creation-card:hover img {
   transform: scale(1.05);
-  filter: brightness(0.4);
+  filter: brightness(0.5);
 }
 
-.creation-card:hover h3 a {
+.creation-card:hover h3 {
   color: var(--clr-black);
 }
 
@@ -277,6 +278,7 @@ left: 1.5rem;
   background-color: rgba(255, 255, 255, 0.75);
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .creation-card:hover::after {
@@ -318,21 +320,25 @@ left: 1.5rem;
   gap: 1.25rem;
 }
 
+.footer-links a, .social-links a {
+  position: relative;
+  padding-bottom: 0.25rem;
+}
 
 .social-links {
   display: flex;
   gap: 1rem;
 }
 
-
 .copyright {
   color: var(--clr-gray-700);
 }
 
+/* Hover Animations for Links */
 .nav-link::after, .footer-links a::after, .social-links a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -344,26 +350,39 @@ left: 1.5rem;
 .nav-link:hover::after, 
 .footer-links a:hover::after, 
 .social-links a:hover::after {
-  width: 50%;
+  width: 70%;
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (DESKTOP)
+   RESPONSIVE DESIGN (TABLET & DESKTOP)
    ========================================================================== */
+
+/* --- Tablet (768px ke atas) --- */
+@media (min-width: 48em) {
+  .creations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .creation-card img {
+    height: 12rem;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+/* --- Desktop (1024px ke atas) --- */
 @media (min-width: 64em) {
   /* Header */
   .hero {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("./images/desktop/image-hero.jpg");
-    padding-top: 2rem;
-   
-  /* Pengaturan Ukuran Latar Belakang */
-  background-size: cover;       /* Gambar memenuhi area hero */
-  background-position: center;  /* Gambar selalu di tengah */
-  background-repeat: no-repeat; /* Gambar tidak mengulang/patah */
-  min-height: 30vh;    
+    padding-top: 4rem;
+    min-height: 80vh;
   }
 
-  .nav-toggle, .mobile-nav-header {
+  .nav-toggle {
     display: none;
   }
 
@@ -387,36 +406,28 @@ left: 1.5rem;
 
   .hero-title-box {
     padding: 2.5rem;
-    margin-top: 100px;
-    margin-bottom: 4rem;
-  }
-
-  .hero-title-box h1 {
-    font-size: 4.5rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
   }
 
   /* Interactive Section Overlay */
   .interactive-section {
     position: relative;
     text-align: left;
-    padding-block: 10rem;
+    padding-block: 8rem;
   }
 
   .interactive-img-wrapper {
-    width: 65%;
+    width: 60%;
   }
 
   .interactive-content {
     position: absolute;
-    bottom: 10rem;
+    bottom: 0;
     right: 0;
     width: 50%;
     padding: 6rem 0 0 6rem;
-    margin-top: 100px;
-  }
-
-  .interactive-content h2 {
-    font-size: 3rem;
+    margin-top: 0;
   }
 
   /* Creations Grid */
@@ -441,7 +452,7 @@ left: 1.5rem;
   }
 
   .creation-card img {
-    height: 450px;
+    height: 28rem;
   }
 
   .creation-card h3 {
@@ -461,22 +472,19 @@ left: 1.5rem;
     align-items: flex-start;
   }
 
-  .footer-links {
-    flex-direction: row;
-    gap: 2rem;
-  }
-
   .footer-meta {
     align-items: flex-end;
   }
 }
+
+/* Accessibility: Accessibility Motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-    transition-duration: 0.01ms;
-    scroll-behavior: auto;
+    animation-duration: 0.01ms ;
+    animation-iteration-count: 1 ;
+    transition-duration: 0.01ms ;
+    scroll-behavior: auto ;
   }
 }
