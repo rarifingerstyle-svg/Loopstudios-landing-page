@@ -329,11 +329,6 @@ left: 1.5rem;
   color: var(--clr-gray-700);
 }
 
-/* Link Hover Underline Effect */
-.nav-link, .footer-links a, .social-links a {
-  position: relative;
-}
-
 .nav-link::after, .footer-links a::after, .social-links a::after {
   content: '';
   position: absolute;
