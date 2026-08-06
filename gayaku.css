@@ -129,7 +129,7 @@ a {
 
 /* Navigation Menu Mobile */
 .primary-navigation {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background-color: var(--clr-black);
   padding: 8rem 1.5rem 2rem;
