@@ -50,8 +50,8 @@ a {
 /* Screen Reader Only Utility Class */
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.0625 rem;
+  height: 0.0625 rem;
   padding: 0;
   margin: -1px;
   overflow: hidden;
@@ -126,14 +126,14 @@ a {
 
 .nav-toggle[aria-expanded="true"] {
   background-image: url('./images/icon-close.svg');
-  position: fixed;
+  position: absolute;
   right: 1.5rem;
   top: 2.5rem;
 }
 
 /* Navigation Menu Mobile */
 .primary-navigation {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background-color: var(--clr-black);
   padding: 8rem 1.5rem 2rem;
