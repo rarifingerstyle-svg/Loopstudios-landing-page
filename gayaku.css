@@ -14,6 +14,13 @@
 
   /* Spacing & Layout */
   --container-max-width: 69.375rem; /* 1110px */
+
+  /* Overlays & Hero Backgrounds */
+  --overlay-dark-mobile: rgba(0, 0, 0, 0.4);
+  --overlay-dark-desktop: rgba(0, 0, 0, 0.3);
+  --overlay-light: rgba(255, 255, 255, 0.75);
+  --hero-img-mobile: url("./images/mobile/image-hero.jpg");
+  --hero-img-desktop: url("./images/desktop/image-hero.jpg");
 }
 
 /* Reset Box Sizing */
@@ -25,7 +32,7 @@
 
 body {
   font-family: var(--ff-primary);
-  font-size: 0.9375rem; /* 15px */
+  font-size: clamp(0.875rem, 0.75rem + 0.3vw, 1rem); /* ~14px-16px, base 15px */
   color: var(--clr-black);
   background-color: var(--clr-white);
   line-height: 1.6;
@@ -90,13 +97,13 @@ a {
    HEADER & HERO
    ========================================================================== */
 .hero {
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("./images/mobile/image-hero.jpg");
+  background-image: linear-gradient(var(--overlay-dark-mobile), var(--overlay-dark-mobile)), var(--hero-img-mobile);
   background-size: cover;
   background-position: center;
   min-height: 100vh;
   min-height: 100dvh;
-  padding-top: 2.5rem;
-  padding-bottom: 4rem;
+  padding-block-start: 2.5rem;
+  padding-block-end: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -127,8 +134,8 @@ a {
 .nav-toggle[aria-expanded="true"] {
   background-image: url('./images/icon-close.svg');
   position: absolute;
-  right: 1.5rem;
-  top: 2.5rem;
+  inset-inline-end: 1.5rem;
+  inset-block-start: 2.5rem;
 }
 
 /* Navigation Menu Mobile */
@@ -166,7 +173,7 @@ a {
 .hero-title-box {
   border: 2px solid var(--clr-white);
   padding: 1.5rem;
-  margin-top: 4rem;
+  margin-block-start: 4rem;
   max-width: 40.625rem;
 }
 
@@ -188,7 +195,7 @@ a {
 }
 
 .interactive-content {
-  margin-top: 3rem;
+  margin-block-start: 3rem;
   background-color: var(--clr-white);
 }
 
@@ -213,7 +220,7 @@ a {
 
 .creations-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-block-end: 3rem;
 }
 
 .creations-header h2 {
@@ -249,10 +256,10 @@ a {
 
 .creation-card h3 {
   position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
+  inset-block-end: 1.25rem;
+  inset-inline-start: 1.25rem;
   font-family: var(--ff-heading);
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 1rem + 1.5vw, 2rem);
   text-transform: uppercase;
   font-weight: 300;
   color: var(--clr-white);
@@ -275,7 +282,7 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: var(--overlay-light);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
@@ -287,7 +294,7 @@ a {
 
 .creations-footer-mobile {
   text-align: center;
-  margin-top: 2.5rem;
+  margin-block-start: 2.5rem;
 }
 
 /* ==========================================================================
@@ -322,7 +329,7 @@ a {
 
 .footer-links a, .social-links a {
   position: relative;
-  padding-bottom: 0.25rem;
+  padding-block-end: 0.25rem;
 }
 
 .social-links {
@@ -338,8 +345,8 @@ a {
 .nav-link::after, .footer-links a::after, .social-links a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 50%;
+  inset-block-end: -0.25rem; /* -4px */
+  inset-inline-start: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0.125rem; /* 2px */
@@ -377,8 +384,8 @@ a {
 @media (min-width: 64em) {
   /* Header */
   .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("./images/desktop/image-hero.jpg");
-    padding-top: 4rem;
+    background-image: linear-gradient(var(--overlay-dark-desktop), var(--overlay-dark-desktop)), var(--hero-img-desktop);
+    padding-block-start: 4rem;
     min-height: 80vh;
   }
 
@@ -406,8 +413,8 @@ a {
 
   .hero-title-box {
     padding: 2.5rem;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+    margin-block-start: 4rem;
+    margin-block-end: 2rem;
   }
 
   /* Interactive Section Overlay */
@@ -423,11 +430,12 @@ a {
 
   .interactive-content {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    inset-block-end: 0;
+    inset-inline-end: 0;
     width: 50%;
-    padding: 6rem 0 0 6rem;
-    margin-top: 0;
+    padding-block-start: 6rem;
+    padding-inline-start: 6rem;
+    margin-block-start: 0;
   }
 
   /* Creations Grid */
@@ -456,9 +464,8 @@ a {
   }
 
   .creation-card h3 {
-    font-size: 2rem;
-    bottom: 2rem;
-    left: 2rem;
+    inset-block-end: 2rem;
+    inset-inline-start: 2rem;
   }
 
   /* Footer */
