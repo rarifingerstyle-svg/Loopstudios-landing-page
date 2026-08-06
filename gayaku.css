@@ -204,7 +204,7 @@ a {
   font-size: clamp(1.75rem, 3vw + 1rem, 3rem);
   text-transform: uppercase;
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
 }
 
 .interactive-content p {
