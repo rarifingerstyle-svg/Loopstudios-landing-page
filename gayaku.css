@@ -62,7 +62,7 @@ left: 1.5rem;
 .container {
   width: min(100% - 3rem, var(--container-max-width));
   margin-inline: auto;
-  margin-top: 50px;
+  margin-top: 3.125 rem ;
 }
 
 /* Buttons */
