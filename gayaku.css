@@ -48,10 +48,10 @@ a {
 /* Screen Reader Only Utility Class for Accessibility */
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
+width: 0.0625rem;
+height: 0.0625rem;
+margin-top: 3.125rem;
+left: 1.5rem;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -318,10 +318,6 @@ a {
   gap: 1.25rem;
 }
 
-.footer-links a {
-  position: relative;
-  padding-bottom: 0.25rem;
-}
 
 .social-links {
   display: flex;
@@ -364,7 +360,7 @@ a {
 /* ==========================================================================
    RESPONSIVE DESIGN (DESKTOP)
    ========================================================================== */
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   /* Header */
   .hero {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("./images/desktop/image-hero.jpg");
