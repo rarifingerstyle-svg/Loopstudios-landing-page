@@ -324,11 +324,6 @@ left: 1.5rem;
   gap: 1rem;
 }
 
-.social-links a {
-  display: inline-block;
-  position: relative;
-  padding-bottom: 0.25rem;
-}
 
 .copyright {
   color: var(--clr-gray-700);
